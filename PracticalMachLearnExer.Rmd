@@ -43,13 +43,13 @@ test<-read.csv(datest,na.strings=c("NA","#DIV/0!", ""))
 #remove non-essential variables, i.e. username, timestamp, window, etc.  cols 1-7
 train<-train[,-c(1:7)]
 test<-test[,-c(1:7)]
-#remove columsn with NAs
+#remove columns with NAs
 train<-train[,colSums(is.na(train)) == 0]
 test <-test[,colSums(is.na(test)) == 0]
 
 ```
 Split the data set using data partitions function
-```{r}
+```{r echo=TRUE}
 trainPart<-createDataPartition(y=train$classe,p=.75,list=FALSE)
 trainSet<-train[trainPart,]
 validSet<-train[-trainPart,]

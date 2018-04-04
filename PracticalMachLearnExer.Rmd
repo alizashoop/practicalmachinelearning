@@ -53,13 +53,15 @@ Split the data set using data partitions function
 trainPart<-createDataPartition(y=train$classe,p=.75,list=FALSE)
 trainSet<-train[trainPart,]
 validSet<-train[-trainPart,]
+```
+```{r}
+#plot the classe variable
 plot(trainSet$classe,col="pink",main="Classe within Train Set",xlab="Classe",ylab="Frequency")
 ```
 
 ## Models
 We will try 3 different models using seed of 33134.
 ```{r}
-
 set.seed(33134)
 ```
 ### Random Forest
